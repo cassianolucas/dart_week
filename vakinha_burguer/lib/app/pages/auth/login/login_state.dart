@@ -10,6 +10,8 @@ enum LoginStatus {
   success,
   loginError,
   error,
+  showPassword,
+  hidePassword,
 }
 
 class LoginState extends Equatable {

@@ -12,7 +12,9 @@ extension LoginStatusMatch on LoginStatus {
       required T Function() login,
       required T Function() success,
       required T Function() loginError,
-      required T Function() error}) {
+      required T Function() error,
+      required T Function() showPassword,
+      required T Function() hidePassword}) {
     final v = this;
     if (v == LoginStatus.initial) {
       return initial();
@@ -34,6 +36,14 @@ extension LoginStatusMatch on LoginStatus {
       return error();
     }
 
+    if (v == LoginStatus.showPassword) {
+      return showPassword();
+    }
+
+    if (v == LoginStatus.hidePassword) {
+      return hidePassword();
+    }
+
     throw Exception('LoginStatus.match failed, found no match for: $this');
   }
 
@@ -43,7 +53,9 @@ extension LoginStatusMatch on LoginStatus {
       T Function()? login,
       T Function()? success,
       T Function()? loginError,
-      T Function()? error}) {
+      T Function()? error,
+      T Function()? showPassword,
+      T Function()? hidePassword}) {
     final v = this;
     if (v == LoginStatus.initial && initial != null) {
       return initial();
@@ -63,6 +75,14 @@ extension LoginStatusMatch on LoginStatus {
 
     if (v == LoginStatus.error && error != null) {
       return error();
+    }
+
+    if (v == LoginStatus.showPassword && showPassword != null) {
+      return showPassword();
+    }
+
+    if (v == LoginStatus.hidePassword && hidePassword != null) {
+      return hidePassword();
     }
 
     return any();

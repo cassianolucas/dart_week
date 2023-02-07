@@ -50,8 +50,9 @@ class _ProductDetailPageState
                 },
                 child: Text(
                   "Cancelar",
-                  style:
-                      context.textStyles.textBold.copyWith(color: Colors.red),
+                  style: context.textStyles.textBold.copyWith(
+                    color: Colors.red,
+                  ),
                 ),
               ),
               TextButton(
@@ -135,7 +136,8 @@ class _ProductDetailPageState
                     return ElevatedButton(
                       style: amount == 0
                           ? ElevatedButton.styleFrom(
-                              backgroundColor: Colors.red)
+                              backgroundColor: Colors.red,
+                            )
                           : null,
                       onPressed: () {
                         if (amount == 0) {

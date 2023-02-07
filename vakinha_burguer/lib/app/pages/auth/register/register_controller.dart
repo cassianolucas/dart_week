@@ -7,7 +7,8 @@ import 'package:vakinha_delivery/app/repositories/auth/auth_repository.dart';
 class RegisterController extends Cubit<RegisterState> {
   final AuthRepository _authRepository;
 
-  RegisterController(this._authRepository) : super(RegisterState.initital());
+  RegisterController(this._authRepository)
+      : super(const RegisterState.initital());
 
   Future<void> register(String name, String email, String password) async {
     try {

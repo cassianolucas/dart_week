@@ -5,7 +5,7 @@ import 'package:vakinha_delivery/app/core/ui/widgets/delivery_appbar.dart';
 import 'package:vakinha_delivery/app/pages/home/home_controller.dart';
 import 'package:vakinha_delivery/app/pages/home/home_state.dart';
 import 'package:vakinha_delivery/app/pages/home/widgets/delivery_product_tile.dart';
-import 'package:vakinha_delivery/app/pages/home/widgets/shopping_bag_widget.dart';
+import 'package:vakinha_delivery/app/pages/home/widgets/button_shopping_bag_widget.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -61,7 +61,7 @@ class _HomePageState extends BaseState<HomePage, HomeController> {
               ),
               Visibility(
                 visible: state.shoppingBag.isNotEmpty,
-                child: ShoppingBagWidget(
+                child: ButtonShoppingBagWidget(
                   bag: state.shoppingBag,
                 ),
               ),

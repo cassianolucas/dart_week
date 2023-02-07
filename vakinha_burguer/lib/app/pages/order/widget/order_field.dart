@@ -42,12 +42,15 @@ class OrderField extends StatelessWidget {
             ),
           ),
           TextFormField(
-              decoration: InputDecoration(
-            hintText: hintText,
-            border: defaultBorder,
-            enabledBorder: defaultBorder,
-            focusedBorder: defaultBorder,
-          )),
+            decoration: InputDecoration(
+              hintText: hintText,
+              border: defaultBorder,
+              enabledBorder: defaultBorder,
+              focusedBorder: defaultBorder,
+            ),
+            validator: validator,
+            controller: controller,
+          ),
         ],
       ),
     );

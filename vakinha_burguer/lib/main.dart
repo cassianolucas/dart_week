@@ -5,5 +5,5 @@ import 'package:vakinha_delivery/app/dw9_delivery_app.dart';
 void main() async {
   await Env.I.load();
 
-  runApp(const DwDeliveyApp());
+  runApp(DwDeliveyApp());
 }

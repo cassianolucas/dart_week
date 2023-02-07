@@ -1,17 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:vakinha_delivery/app/core/extensions/formatter_extensions.dart';
 import 'package:vakinha_delivery/app/core/ui/helpers/size_extensions.dart';
 import 'package:vakinha_delivery/app/core/ui/styles/text_style.dart';
 import 'package:vakinha_delivery/app/dto/order_product_dto.dart';
+import 'package:vakinha_delivery/app/pages/home/home_controller.dart';
 
-class ShoppingBagWidget extends StatelessWidget {
+class ButtonShoppingBagWidget extends StatelessWidget {
   final List<OrderProductDto> bag;
 
-  const ShoppingBagWidget({super.key, required this.bag});
+  const ButtonShoppingBagWidget({super.key, required this.bag});
 
   Future<void> _goOrder(BuildContext context) async {
     final navigator = Navigator.of(context);
+
+    final controller = context.read<HomeController>();
 
     final sp = await SharedPreferences.getInstance();
 
@@ -23,7 +27,8 @@ class ShoppingBagWidget extends StatelessWidget {
       }
     }
 
-    navigator.pushNamed("/order", arguments: bag);
+    final updateBag = await navigator.pushNamed("/order", arguments: bag);
+    controller.updateBag(updateBag as List<OrderProductDto>);
   }
 
   @override

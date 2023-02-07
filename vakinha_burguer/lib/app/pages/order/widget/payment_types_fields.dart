@@ -2,9 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:flutter_awesome_select/flutter_awesome_select.dart';
 import 'package:vakinha_delivery/app/core/ui/helpers/size_extensions.dart';
 import 'package:vakinha_delivery/app/core/ui/styles/text_style.dart';
+import 'package:vakinha_delivery/app/models/payment_type_model.dart';
 
 class PaymentTypesField extends StatelessWidget {
-  const PaymentTypesField({super.key});
+  final List<PaymentTypeModel> paymentTypes;
+  final ValueChanged<int> valueChanged;
+  final bool validate;
+  final String valueSelected;
+
+  const PaymentTypesField({
+    super.key,
+    required this.paymentTypes,
+    required this.valueChanged,
+    required this.validate,
+    required this.valueSelected,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +35,9 @@ class PaymentTypesField extends StatelessWidget {
             title: '',
             selectedValue: '',
             modalType: S2ModalType.bottomSheet,
-            onChange: (value) {},
+            onChange: (value) {
+              valueChanged(int.parse(value.value));
+            },
             tileBuilder: (context, state) {
               return InkWell(
                 onTap: state.showModal,
@@ -40,8 +54,23 @@ class PaymentTypesField extends StatelessWidget {
                             state.selected.title ?? "",
                             style: context.textStyles.textRegular,
                           ),
-                          const Icon(Icons.arrow_forward_ios_rounded)
+                          const Icon(
+                            Icons.arrow_forward_ios_rounded,
+                          ),
                         ],
+                      ),
+                    ),
+                    Visibility(
+                      visible: !validate,
+                      child: const Divider(color: Colors.red),
+                    ),
+                    Visibility(
+                      visible: !validate,
+                      child: Text(
+                        'Selecione uma forma de pagamento',
+                        style: context.textStyles.textRegular.copyWith(
+                          color: Colors.red,
+                        ),
                       ),
                     ),
                   ],
@@ -49,17 +78,18 @@ class PaymentTypesField extends StatelessWidget {
               );
             },
             choiceItems: S2Choice.listFrom<String, Map<String, String>>(
-              source: [
-                {"value": "VA", "title": "Vale Alimentação"},
-                {"value": "VR", "title": "Vale Refeição"},
-                {'value': 'CC', 'title': 'Cartão de Crédito'},
-              ],
+              source: paymentTypes
+                  .map((e) => {
+                        "value": e.id.toString(),
+                        "title": e.name,
+                      })
+                  .toList(),
               title: (index, item) => item['title'] ?? '',
               value: (index, item) => item['value'] ?? '',
               group: (index, item) => "Selecione uma forma de pagamento",
             ),
             choiceType: S2ChoiceType.radios,
-            choiceGrouped: true,
+            choiceGrouped: false,
             modalFilter: false,
             placeholder: "",
           ),

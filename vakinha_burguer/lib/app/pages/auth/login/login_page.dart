@@ -77,12 +77,14 @@ class _LoginPageState extends BaseState<LoginPage, LoginController> {
                       const SizedBox(height: 30),
                       TextFormField(
                         decoration: const InputDecoration(
-                          labelText: "E-Mail",
+                          labelText: "E-mail",
                         ),
-                        validator: Validatorless.multiple([
-                          Validatorless.required("E-mail obrigatório"),
-                          Validatorless.email("E-mail inálido"),
-                        ]),
+                        validator: Validatorless.multiple(
+                          [
+                            Validatorless.required("E-mail obrigatório"),
+                            Validatorless.email("E-mail inálido"),
+                          ],
+                        ),
                         controller: _email,
                       ),
                       const SizedBox(height: 30),
