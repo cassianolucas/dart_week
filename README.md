@@ -45,14 +45,14 @@
 <h2>📱 Screenshots</h2>
 
 <p align="center">
-    <img src='assets/screenshots/Screenshot_1675730073.png' width='280'>
-    <img src='assets/screenshots/Screenshot_1675730084.png' width='280'>
-    <img src='assets/screenshots/Screenshot_1675730097.png' width='280'>
-    <img src='assets/screenshots/Screenshot_1675730109.png' width='280'>
-    <img src='assets/screenshots/Screenshot_1675730113.png' width='280'>
-    <img src='assets/screenshots/Screenshot_1675730117.png' width='280'>
-    <img src='assets/screenshots/Screenshot_1675730169.png' width='280'>
-    <img src='assets/screenshots/Screenshot_1675730172.png' width='280'>
+    <img src='vakinha_burguer/assets/screenshots/Screenshot_1675730073.png' width='280'>
+    <img src='vakinha_burguer/assets/screenshots/Screenshot_1675730084.png' width='280'>
+    <img src='vakinha_burguer/assets/screenshots/Screenshot_1675730097.png' width='280'>
+    <img src='vakinha_burguer/assets/screenshots/Screenshot_1675730109.png' width='280'>
+    <img src='vakinha_burguer/assets/screenshots/Screenshot_1675730113.png' width='280'>
+    <img src='vakinha_burguer/assets/screenshots/Screenshot_1675730117.png' width='280'>
+    <img src='vakinha_burguer/assets/screenshots/Screenshot_1675730169.png' width='280'>
+    <img src='vakinha_burguer/assets/screenshots/Screenshot_1675730172.png' width='280'>
 </p>
 
 <h2>📝 Licença</h2>
